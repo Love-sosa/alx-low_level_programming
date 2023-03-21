@@ -1,36 +1,31 @@
 #include <stdio.h>
-
 /**
-* main - Starting point of the code
+* main - Entry point
 *
 * Return: Always 0 (Success)
 */
 int main(void)
 {
-int i, j;
+int nums;
+int nums1;
+int nums2;
 
-for (i = 0; i < 100; i++)
+for (nums = '0'; nums <= '7'; nums++)
 {
-for (j = i; j < 100; j++)
+for (nums1 = nums + 1; nums1 <= '9'; nums1++)
 {
-int a = i / 10;
-int b = i % 10;
-int c = j / 10;
-int d = j % 10;
-putchar(a + '0');
-putchar(b + '0');
-putchar(' ');
-putchar(c + '0');
-putchar(d + '0');
-if (i != 99 || j != 98)
+for (nums2 = nums1 + 1; nums2 <= '9'; nums2++)
 {
+putchar(nums);
+putchar(nums1);
+putchar(nums2);
+if (nums == '7' && nums1 == '8' && nums2 == '9')
+break;
 putchar(',');
 putchar(' ');
 }
 }
 }
-
 putchar('\n');
-
 return (0);
 }
