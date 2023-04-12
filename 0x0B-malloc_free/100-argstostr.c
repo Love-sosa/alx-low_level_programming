@@ -6,7 +6,6 @@
 *@av: double pointer array
 *Return: 0
 */
-
 char *argstostr(int ac, char **av)
 {
 int i, n, r = 0, l = 0;
@@ -22,7 +21,7 @@ l++;
 }
 l += ac;
 
-str = (char*) malloc(sizeof(char) * (l + 1));
+str = malloc(sizeof(char) * l + 1);
 if (str == NULL)
 return (NULL);
 for (i = 0; i < ac; i++)
@@ -39,3 +38,4 @@ str[r++] = '\n';
 }
 return (str);
 }
+
