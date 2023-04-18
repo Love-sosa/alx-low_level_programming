@@ -9,6 +9,6 @@
 
 int main(void)
 {
-printf("The name of the compiled file is %s\n", FILE_NAME);
+printf("%s\n", FILE_NAME);
 return (0);
 }
