@@ -5,31 +5,39 @@
 * @head: linked list to search for
 *
 * Return: address of the node where the loop starts, or NULL
-*/     
+*/
+
 listint_t *find_listint_loop(listint_t *head)
 {
-listint_t *slow = head;
-listint_t *fast = head;
+listint_t *slow, *fast;
 
-if (!head)
+if (head == NULL)
 return (NULL);
 
-while (slow && fast && fast->next)
-{
-fast = fast->next->next;
-slow = slow->next;
-if (fast == slow)
-{
 slow = head;
+fast = head;
+
+while (fast != NULL && fast->next != NULL)
+{
+slow = slow->next;
+fast = fast->next->next;
+
+if (slow == fast)
+{
+/* There is a loop in the list */
+slow = head;
+
 while (slow != fast)
 {
 slow = slow->next;
 fast = fast->next;
 }
-return (fast);
+
+/* Now slow and fast point to the start of the loop */
+return (slow);
 }
 }
 
+/* No loop found */
 return (NULL);
 }
-
